@@ -24,6 +24,10 @@ try :
                 if face_cascade is not None:
                         faces = face_cascade.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=1, minSize=(30, 30))
                         frame_count = len(faces)
+                        # loop over all the detected faces
+                        for (x,y,w,h) in faces:
+                                # To draw a rectangle around the detected face  
+                                cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,255),2)
                         cv2.imshow('cam',frame)
                         LitLED(frame_count)
         # Break the loop if 'q' key is pressed
