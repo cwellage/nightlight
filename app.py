@@ -30,8 +30,8 @@ try :
                                 cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,255),2)
                         cv2.imshow('cam',frame)
                         LitLED(frame_count)
-        # Break the loop if 'q' key is pressed
-                if (cv2.waitKey(1) & 0xFF == ord('q')):
+        # Break the loop if 'q' key is pressed or close button clicked
+                if (cv2.waitKey(1) & 0xFF == ord('q')) | (cv2.getWindowProperty('cam', cv2.WND_PROP_VISIBLE)==0):
                         break
 except Exception as e :
         raise e 
